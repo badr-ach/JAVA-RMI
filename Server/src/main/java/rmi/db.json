@@ -1,0 +1,5 @@
+{
+  "movies": [],
+  "catalog":[],
+  "users":[{"password":"mdp","email":"user@domain.com"}]
+}
