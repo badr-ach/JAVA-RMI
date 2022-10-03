@@ -1,11 +1,10 @@
 package rmi.services.classes;
 
-import net.minidev.json.parser.ParseException;
-import rmi.contracts.Bill;
-import rmi.contracts.MovieDesc;
-import rmi.contracts.MovieDescExtended;
-import rmi.db.dao.Movies;
-import rmi.db.models.Movie;
+import local.classes.Bill;
+import local.classes.MovieDesc;
+import local.classes.MovieDescExtended;
+import local.db.dao.Movies;
+import local.db.models.Movie;
 import rmi.services.interfaces.IClientBox;
 import rmi.services.interfaces.IVODService;
 
@@ -14,11 +13,9 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.SortedMap;
 
 public class VODService extends UnicastRemoteObject implements IVODService {
 

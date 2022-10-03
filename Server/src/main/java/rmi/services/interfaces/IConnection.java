@@ -1,7 +1,7 @@
 package rmi.services.interfaces;
 
-import rmi.exceptions.InvalidCredentialsException;
-import rmi.exceptions.SignUpFailed;
+import local.exceptions.InvalidCredentialsException;
+import local.exceptions.SignUpFailed;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

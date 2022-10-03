@@ -1,7 +1,7 @@
 package rmi.services.interfaces;
 
-import rmi.contracts.Bill;
-import rmi.contracts.MovieDesc;
+import local.classes.Bill;
+import local.classes.MovieDesc;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

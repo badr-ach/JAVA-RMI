@@ -1,14 +1,12 @@
 package rmi.services.classes;
 
-import net.minidev.json.parser.ParseException;
-import rmi.db.dao.Users;
-import rmi.db.models.User;
-import rmi.exceptions.InvalidCredentialsException;
-import rmi.exceptions.SignUpFailed;
+import local.db.dao.Users;
+import local.db.models.User;
+import local.exceptions.InvalidCredentialsException;
+import local.exceptions.SignUpFailed;
 import rmi.services.interfaces.IConnection;
 import rmi.services.interfaces.IVODService;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 

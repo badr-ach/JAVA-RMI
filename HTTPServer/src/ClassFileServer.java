@@ -110,8 +110,6 @@ public class ClassFileServer extends ClassServer {
         }
         try {
             ClassFileServer cfs = new ClassFileServer(port, classpath);
-            for(File f : cfs.codebases)
-                System.out.println(f.isDirectory());
         } catch (java.io.IOException e) {
             System.out.println("Unable to start ClassServer: " + e.getMessage());
             e.printStackTrace();
