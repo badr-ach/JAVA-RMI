@@ -1,6 +1,8 @@
 package rmi.contracts;
 
-public class MovieDesc {
+import java.io.Serializable;
+
+public class MovieDesc implements Serializable {
     private String movieName;
     private String ISBN;
     private String Synopsis;
@@ -33,5 +35,14 @@ public class MovieDesc {
 
     public void setSynopsis(String synopsis) {
         Synopsis = synopsis;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Movie Name='" + movieName + '\'' +
+                ", ISBN='" + ISBN + '\'' +
+                ", Synopsis='" + Synopsis + '\'';
+
     }
 }

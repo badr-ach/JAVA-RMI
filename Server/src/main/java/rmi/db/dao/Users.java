@@ -21,6 +21,7 @@ public class Users extends DAO {
             o.put("email", user.getEmail());
             o.put("password", user.getPassword());
             users.add(o);
+            this.setFileWriter(new FileWriter("src/main/java/rmi/db.json"));
             fileWriter.write(root.toJSONString());
             fileWriter.flush();
             return true;

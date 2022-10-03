@@ -1,8 +1,9 @@
 package rmi.contracts;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
-public class Bill {
+public class Bill implements Serializable {
     private String movieName;
     private BigInteger outrageousPrice;
 
@@ -25,5 +26,12 @@ public class Bill {
 
     public void setOutrageousPrice(BigInteger outrageousPrice) {
         this.outrageousPrice = outrageousPrice;
+    }
+
+    @Override
+    public String toString() {
+        return
+                movieName + '\'' +
+                ", for $" + outrageousPrice ;
     }
 }

@@ -1,3 +1,4 @@
+import java.io.File;
 
 /**
  * The ClassFileServer implements a ClassServer that
@@ -108,7 +109,9 @@ public class ClassFileServer extends ClassServer {
             classpath = args[1];
         }
         try {
-            new ClassFileServer(port, classpath);
+            ClassFileServer cfs = new ClassFileServer(port, classpath);
+            for(File f : cfs.codebases)
+                System.out.println(f.isDirectory());
         } catch (java.io.IOException e) {
             System.out.println("Unable to start ClassServer: " + e.getMessage());
             e.printStackTrace();

@@ -24,7 +24,7 @@ public class Movies extends DAO{
         List<Movie> list = new ArrayList<>();
         for(Object o : catalog){
             JSONObject json_o = (JSONObject) o;
-            list.add(new Movie(json_o.getAsString("name;"),json_o.getAsString("ISBN"),
+            list.add(new Movie(json_o.getAsString("name"),json_o.getAsString("ISBN"),
                     json_o.getAsString("synopsis"),json_o.getAsString("trailer")));
         }
         return list;
@@ -44,8 +44,13 @@ public class Movies extends DAO{
                 middle = middle +  ((upper_bound -middle)/2);
             }
         }
+/*
+        for(int i = 0 ; i < movies.size() ; i++){
+            if(((JSONObject)movies.get(i)).getAsString("ISBN").equals(ISBN)){
 
-
+            }
+        }
+*/
         ByteArrayInputStream in = new ByteArrayInputStream (((JSONObject)movies.get(middle)).getAsString("movie").getBytes());
         return in;
     }

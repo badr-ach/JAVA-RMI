@@ -15,7 +15,6 @@ public class DAO {
     protected FileReader fileReader;
 
     public DAO() throws IOException, ParseException {
-        fileWriter = new FileWriter("src/main/java/rmi/db.json");
         fileReader = new FileReader("src/main/java/rmi/db.json");
         JSONParser parser = new JSONParser();
         root = (JSONObject) parser.parse(fileReader);
