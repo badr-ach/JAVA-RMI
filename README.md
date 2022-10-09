@@ -68,5 +68,5 @@ In this order :
   You can then access the VOD service from the terminal that launched the client.
 
 
-- Warning : Must have a directory name / hierarchy from which it will copy bytes from requested .class files (or .jar files) 
+- Warning : HTTPServer must have a directory name / hierarchy from which it will copy bytes from requested .class files (or .jar files) 
 from JVMs of the RMI application (including from rmiregistry, and from client-side JVM).
