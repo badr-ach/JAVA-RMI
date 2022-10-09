@@ -6,6 +6,8 @@
    
 
 #### HTTPServer - which provides the basic functionality of a mini web server.
+Automatically sends back requested .class by JVMs. 
+
 - The ClassServer creates a thread that listens on a socket
   and accepts HTTP GET requests. The HTTP response contains the
   bytecodes for the class that requested in the GET header.  
@@ -64,3 +66,7 @@ In this order :
 
 - Launch the client from the main method of the Main class.
   You can then access the VOD service from the terminal that launched the client.
+
+
+- Warning : Must have a directory name / hierarchy from which it will copy bytes from requested .class files (or .jar files) 
+from JVMs of the RMI application (including from rmiregistry, and from client-side JVM).
