@@ -10,9 +10,10 @@ import rmi.services.interfaces.IVODService;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+// Connection class representing user connection to the VOD service
 public class Connection extends UnicastRemoteObject implements IConnection {
 
-    private Users usersDAO;
+    private Users usersDAO; // users manager through database
     public Connection() throws RemoteException {
         try{
         usersDAO = new Users();}
@@ -22,6 +23,7 @@ public class Connection extends UnicastRemoteObject implements IConnection {
         }
     }
 
+    // signup method to add new user to the VOD service
     @Override
     public boolean signup(String email, String password) throws SignUpFailed, RemoteException {
             User user = new User(email, password);
@@ -34,6 +36,7 @@ public class Connection extends UnicastRemoteObject implements IConnection {
             }
     }
 
+    // login method to log the user to the VOD service
     @Override
     public IVODService login(String email, String password) throws InvalidCredentialsException, RemoteException {
         User user = new User(email,password);

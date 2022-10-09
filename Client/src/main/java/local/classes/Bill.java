@@ -3,9 +3,10 @@ package local.classes;
 import java.io.Serializable;
 import java.math.BigInteger;
 
+// Bill class representing a bill given after buying a movie
 public class Bill implements Serializable {
-    private String movieName;
-    private BigInteger outrageousPrice;
+    private String movieName; // movie name associated to the bill
+    private BigInteger outrageousPrice; // bill price
 
     public Bill(String movieName, BigInteger outrageousPrice) {
         this.movieName = movieName;

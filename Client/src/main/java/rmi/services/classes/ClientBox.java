@@ -14,10 +14,9 @@ public class ClientBox extends UnicastRemoteObject implements IClientBox {
     @Override
     public synchronized void stream(byte[] chunck) throws RemoteException {
         try {
-            // just to give the loading effect
-            wait(100);
+            wait(100); // just to give the loading effect
             System.out.print(new String(chunck));
-        }catch(Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
             System.out.println("Failed to stream, retrying");
         }

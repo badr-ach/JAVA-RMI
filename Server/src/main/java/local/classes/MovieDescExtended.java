@@ -3,6 +3,7 @@ package local.classes;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+// Movie description class extended, providing a teaser of the movie
 public class MovieDescExtended extends MovieDesc{
     private byte[] teaser;
 
@@ -19,6 +20,7 @@ public class MovieDescExtended extends MovieDesc{
         this.teaser = teaser;
     }
 
+    // displaying the movie's teaser through the buffer
     @Override
     public String toString() {
         System.out.println(super.toString());

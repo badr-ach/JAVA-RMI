@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+// VOD Service class representing the VOD Service
+// displays movies catalog and play movies
 public class VODService extends UnicastRemoteObject implements IVODService {
 
     Movies moviesDAO;
@@ -30,6 +32,7 @@ public class VODService extends UnicastRemoteObject implements IVODService {
         }
     }
 
+    // displaying movies' descriptions list
     @Override
     public List<MovieDesc> viewCatalog() throws RemoteException {
         List<MovieDesc> catalog = new ArrayList<>();
@@ -45,6 +48,7 @@ public class VODService extends UnicastRemoteObject implements IVODService {
         return catalog;
     }
 
+    // playing movie with specified ISBN
     @Override
     public synchronized Bill PlayMovie(String isbn, IClientBox box) throws RemoteException {
         box.stream(("\nNow streaming : " + isbn + "\n").getBytes());

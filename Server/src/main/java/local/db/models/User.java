@@ -1,5 +1,6 @@
 package local.db.models;
 
+// User class representating a user of the VOD service
 public class User {
     private String email;
     private String password;

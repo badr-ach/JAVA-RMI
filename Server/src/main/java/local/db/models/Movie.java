@@ -1,5 +1,6 @@
 package local.db.models;
 
+// Movie class representating a movie of the VOD service
 public class Movie {
     private String movieName;
     private String isbn;
