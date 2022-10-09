@@ -34,7 +34,7 @@
 This one contains a DAO class, used to get data from JSON file.
 
 
-- A file reader is associated to the json file storing data
+- A file reader is associated to the json file storing data.
 File reader is parsed to get a JSONObject.
 
 
@@ -56,9 +56,9 @@ In this order :
 - Launch the HTTP server (HTTPServer) from the main method of the CLassFileServer class
 
 
-- Launch the server (Server) from the main method of the Main class
+- Launch the server (Server) from the main method of the Main class.
   You must first modify the machine and the port specified in the main method in the following function
-  the following function: `System.setProperty("java.rmi.server.codebase", "http://yourdevice:port/");"`
+  : `System.setProperty("java.rmi.server.codebase", "http://yourdevice:port/");"`
   They are specified when launching HTTPServer.
 
 
