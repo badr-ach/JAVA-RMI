@@ -2,7 +2,6 @@ package rmi.services.classes;
 
 import rmi.services.interfaces.IClientBox;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 

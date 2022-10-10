@@ -1,5 +1,7 @@
 package local.exceptions;
 
-// Exception to throw when an error occured when trying to signUp
+/**
+ * Exception thrown when an error during an attempt to sign up
+ */
 public class SignUpFailed extends RuntimeException{
 }

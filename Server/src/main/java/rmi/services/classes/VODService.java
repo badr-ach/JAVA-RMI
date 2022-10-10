@@ -17,12 +17,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// VOD Service class representing the VOD Service
-// displays movies catalog and play movies
+
+/**
+ * Remote Object Class VOD Service used to instantiate a distant object
+ * that will be used to access the provided services including displaying
+ * the catalog and playing movies
+ */
 public class VODService extends UnicastRemoteObject implements IVODService {
 
+    /**
+     * Data Access Object to interact with movies data stored in json db
+     */
     Movies moviesDAO;
 
+    /**
+     * Default Constructor used to initialize
+     * the Data Access Object for movies
+     */
     protected VODService() throws RemoteException {
         try {
             moviesDAO = new Movies();
@@ -32,7 +43,10 @@ public class VODService extends UnicastRemoteObject implements IVODService {
         }
     }
 
-    // displaying movies' descriptions list
+    /**
+     * Display the catalog of movies that are stored in the database
+     * @return List<MovieDesc>  The list of the movies with their description
+     */
     @Override
     public List<MovieDesc> viewCatalog() throws RemoteException {
         List<MovieDesc> catalog = new ArrayList<>();
@@ -48,10 +62,18 @@ public class VODService extends UnicastRemoteObject implements IVODService {
         return catalog;
     }
 
-    // playing movie with specified ISBN
+
+    /**
+     * Play a movie with the specified ISBN
+     * @param ISBN the isbn of the movie the user wishes to play
+     * @param IClientBox the distant object representing the client
+     *                   that is requesting the movie to be played
+     * @return Bill the bill of the movie (with a randomly generated price)
+     *              for the movie that the user have just watched
+     */
     @Override
     public synchronized Bill PlayMovie(String isbn, IClientBox box) throws RemoteException {
-        box.stream(("\nNow streaming : " + isbn + "\n").getBytes());
+        box.stream(("\nNow streaming : " + moviesDAO.getMovieName(isbn) + "\n").getBytes());
         new Thread(new Runnable() {
             @Override
             public void run() {

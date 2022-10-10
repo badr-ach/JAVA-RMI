@@ -2,10 +2,21 @@ package local.classes;
 
 import java.io.Serializable;
 
-// Movie description class
+/**
+ * Movie description class
+ */
 public class MovieDesc implements Serializable {
+    /**
+     * Movie name
+     */
     private String movieName;
-    private String ISBN; // Unique identification number
+    /**
+     * Unique movie identifier : ISBN
+     */
+    private String ISBN;
+    /**
+     * Synopsis of the movie
+     */
     private String synopsis;
 
     public MovieDesc(String movieName, String ISBN, String synopsis) {

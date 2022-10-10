@@ -7,25 +7,49 @@ import rmi.services.classes.ClientBox;
 import rmi.services.interfaces.IConnection;
 import rmi.services.interfaces.IVODService;
 
+import java.io.*;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Scanner;
 
-// Menu class representing the menu customer will interact with
-// to sign-in, choose a movie ...
-public class Menu {
-    private boolean LoggedIn = false; // boolean set to check if user is logged-in
-    private int tries = 3; // attempts number to sign-in
+import static java.lang.System.exit;
 
-    private IVODService vodService = null; // default vod service
+/**
+ * Menu class representing the menu that the user
+ * will interact with to sign-in, choose a movie ...
+ */
+public class Menu {
+    /**
+     * boolean set to check if user is logged-in
+     */
+    private boolean LoggedIn = false;
+    /**
+     * Attempts number to Sign In
+     */
+    private int tries = 3;
+
+    /**
+     * Vod Service that will hold the distant object
+     */
+    private IVODService vodService = null;
+    /**
+     * Current Client Box wishing to use the service
+     * and which will be used as a distant object too
+     */
     private final ClientBox box = new ClientBox();
 
     public Menu() throws RemoteException {
     }
 
-    // start method launching the Menu for user with connection remote reference
-    void start(IConnection con) throws RemoteException, InterruptedException {
-            int choice = 0; // user's choice between signing in or up
+
+    /**
+     * Start method launching the Menu for user with connection remote reference
+     * @param con Connection stub obtained from the registry
+     * @throws RemoteException
+     * @throws InterruptedException
+     */
+    void start(IConnection con) throws RemoteException, InterruptedException, FileNotFoundException, UnsupportedEncodingException {
+            int choice = 0; // user's choice between sign in or sign up
 
             Scanner scan = new Scanner(System.in);
 
@@ -35,7 +59,8 @@ public class Menu {
 
             System.out.println("Welcome to VOD!\n");
             System.out.println("Please choose an option : \n1 - Sign up \n2 - Sign In");
-            System.out.print("Choosing... ");
+            System.out.print("Your choice is : ");
+
             choice = scan.nextInt(); // asking user to enter a number according to his choice
 
             // running loop while user is not logged in and has remaining attempts
@@ -79,15 +104,35 @@ public class Menu {
 
                 System.out.print("Pick a movie (ISBN) : ");
                 isbn = scan.next(); // asking user to choose a movie by typing an ISBN
-
-                System.out.println(box.getClass());
                 Bill bill = vodService.PlayMovie(isbn,box); // getting the bill associated to selected movie from VOD service and playing movie
 
                 System.out.println("\n=================================== Thanks for watching ===================================\n");
-                System.out.println("That was : " + bill); // displaying the bill
+                saveBill(bill);
 
             } else {
                 System.out.println("Failed to login, please try again later.");
             }
+    }
+
+    /**
+     * Saves the bill to a .csv file in the project directory
+     * @param bill the bill to be saved
+     * @throws FileNotFoundException
+     * @throws UnsupportedEncodingException
+     */
+    private void saveBill(Bill bill) throws FileNotFoundException, UnsupportedEncodingException {
+        String savestr = "../Factures.csv";
+        File f = new File(savestr);
+
+        PrintWriter out = null;
+        if ( f.exists() && !f.isDirectory() ) {
+            out = new PrintWriter(new FileOutputStream(new File(savestr), true));
+        }
+        else {
+            out = new PrintWriter(savestr);
+            out.append("Movie Name;Price\n");
+        }
+        out.append(bill.getMovieName()+";"+bill.getOutrageousPrice()+"\n");
+        out.close();
     }
 }

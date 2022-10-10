@@ -3,10 +3,18 @@ package local.classes;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-// Bill class representing a bill given after buying a movie
+/**
+ * Bill class representing a bill given after streaming a movie
+ */
 public class Bill implements Serializable {
-    private String movieName; // movie name associated to the bill
-    private BigInteger outrageousPrice; // bill price
+    /**
+     * Name of the movie that was streamed
+     */
+    private String movieName;
+    /**
+     * Outrageoues price of the bill
+     */
+    private BigInteger outrageousPrice;
 
     public Bill(String movieName, BigInteger outrageousPrice) {
         this.movieName = movieName;
@@ -31,8 +39,9 @@ public class Bill implements Serializable {
 
     @Override
     public String toString() {
-        return
-                movieName + '\'' +
-                ", for $" + outrageousPrice ;
+        return "Bill{" +
+                "movieName='" + movieName + '\'' +
+                ", outrageousPrice=" + outrageousPrice +
+                '}';
     }
 }

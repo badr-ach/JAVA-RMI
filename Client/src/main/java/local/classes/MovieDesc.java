@@ -2,10 +2,21 @@ package local.classes;
 
 import java.io.Serializable;
 
-// Movie description class
+/**
+ * Movie description class
+ */
 public class MovieDesc implements Serializable {
+    /**
+     * Movie name
+     */
     private String movieName;
-    private String ISBN; // Unique identification number
+    /**
+     * Unique movie identifier : ISBN
+     */
+    private String ISBN;
+    /**
+     * Synopsis of the movie
+     */
     private String synopsis;
 
     public MovieDesc(String movieName, String ISBN, String synopsis) {
@@ -15,7 +26,7 @@ public class MovieDesc implements Serializable {
     }
 
     public String getMovieName() {
-        return this.movieName;
+        return movieName;
     }
 
     public void setMovieName(String movieName) {
@@ -41,9 +52,9 @@ public class MovieDesc implements Serializable {
     @Override
     public String toString() {
         return
-                "Movie Name='" + this.movieName + '\'' +
-                ", ISBN='" + this.ISBN + '\'' +
-                ", Synopsis='" + this.synopsis + '\'';
+                "Movie Name : '" + this.movieName + '\'' + '\n' +
+                "   ISBN : '" + this.ISBN + '\'' +'\n' +
+                "   Synopsis : '" + this.synopsis + '\'';
 
     }
 }

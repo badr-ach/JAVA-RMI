@@ -7,14 +7,19 @@ import java.io.IOException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+/**
+ * Main Method that starts the server and the RMIRegistry then
+ * registers the distant objects and sets the @httpserver which will be the codebase
+ */
 public class Main {
-    // Main method running the server
     public static void main(String[] args) throws IOException, ParseException {
         try{
-            Registry reg = LocateRegistry.createRegistry(2002); // obtains a reference to a remote object registry on specified port
-            reg.rebind("con",new Connection()); // binding the remote reference from the specified name in this registry.
+            // Creates the RMIRegistry and exports it on the localhost to accept request on the specified port
+            Registry reg = LocateRegistry.createRegistry(2002);
 
-            System.setProperty("java.rmi.server.codebase", "http://Ptah:2001/"); // specifies device and port for the server
+            // binding the remote reference from the specified name in this registry.
+            reg.rebind("con",new Connection());
+
             System.out.println("Connected to the codebase : " +
                     System.getProperty("java.rmi.server.codebase"));
 

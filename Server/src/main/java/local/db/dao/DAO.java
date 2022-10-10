@@ -9,16 +9,34 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-// DAO class util used to get data from JSON file
-public class DAO {
+/**
+ * Data Access class util used to get data from JSON file
+ */
+public abstract class DAO {
+    /**
+     * Root of the json file that is used as a database file
+     */
     protected JSONObject root;
+    /**
+     * FileWriter that will be incharge of modifying the json file
+     */
     protected FileWriter fileWriter;
+    /**
+     * FileReader that will be incharge of reading data from the json file
+     */
     protected FileReader fileReader;
 
+    /**
+     * Default constructor that instantiates the file reader with the proper path to the json db file
+     * @throws IOException
+     * @throws ParseException
+     */
     public DAO() throws IOException, ParseException {
-        fileReader = new FileReader("src/main/java/local/db.json"); // file reader associated to the json file storing data
+        // file reader associated to the json file storing data
+        fileReader = new FileReader("src/main/java/local/db.json");
         JSONParser parser = new JSONParser();
-        root = (JSONObject) parser.parse(fileReader); // parsing the file reader and getting a JSONObject
+        // parsing the file reader and getting the root a JSONObject
+        root = (JSONObject) parser.parse(fileReader);
     }
 
     public JSONObject getRoot() {
