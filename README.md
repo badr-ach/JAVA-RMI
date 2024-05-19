@@ -2,11 +2,11 @@
 ## By Badr Al Achkar and Louis Calas
 
 
-### This project simulates an online platform that delivers videos on demand, through an RMI client-server JAVA application.
+This project simulates an online platform that delivers videos on demand, through an RMI client-server JAVA application.
 
-### The project uses maven with a pom.xml included in the Client and Server to make use of the JSONPath package in the creation of a local document database (json based) to store the data (users and movies).<br>
+The project uses maven with a pom.xml included in the Client and Server to make use of the JSONPath package in the creation of a local document database (json based) to store the data (users and movies).<br>
 
-### The project is divided into three distinct parts <br>
+The project is divided into three distinct parts <br>
 
 #### HTTPServer - which provides the basic functionality of a mini web server.
 
